@@ -30,6 +30,11 @@ mvn clean install
 ```
 mvn spring-boot:run
 ```
+
+## Database Design
+
+![alt text](db_design)
+
 ## Key design decisions and libraries used
 
 1. The matching of orders for creation of trades was decided to be separated from the order creation controller. This was done by making the orders api to create an order and send a mesagge to the rabbitmq queue. The message will just be the stock_symbol, based upon which the queue listner will try and match orders for the stock symbol and therby creating a trade.
